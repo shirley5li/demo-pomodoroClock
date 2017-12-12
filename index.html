@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" http-equiv="Content-Type" content="text/html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pomodoro Clock</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.js"></script>
+</head>
+<body>
+	<h1>Pomodoro Clock</h1>
+	<!-- <main>标签是 HTML5中的新标签,规定文档的主要内容 -->
+	<main ng-app="PomodoroApp" ng-controller="MainCtrl">
+ 		<header>
+    		<div class="session">
+      			<div class="breakCtrl">
+        			<p>break length</p>
+        			<button ng-click="breakLengthChange(-1)" class="minus">-</button><span class="time">{{breakLength}}</span>
+        			<button ng-click="breakLengthChange(1)" class="plus">+</button>
+      			</div>
+      			<div class="sessionCtrl">
+        			<p>session length</p>
+        			<button ng-click="sessionLengthChange(-1)" class="minus">-</button><span class="time">{{sessionLength}}</span>
+        			<button ng-click="sessionLengthChange(1)" class="plus">+</button>
+      			</div>
+   			</div>
+  		</header>
+      <!-- <section>标签是HTML5中的新标签,定义文档中的节（section、区段），比如章节、页眉、页脚或文档中的其他部分-->
+  		<section ng-click="toggleTimer()">
+<!--         <div class="earLeft"></div>
+        <div class="earRight"></div> -->
+    		<div class="timer">
+      			<p class="title">{{sessionName}}</p>
+      			<p>{{timeLeft}}</p><span ng-style="{'height':fillHeight, 'background':fillColor }" class="fill"></span>
+    		</div>
+  		</section>
+	</main>
+  <script type="text/javascript" src="global.js"></script>
+</body>
+</html>
